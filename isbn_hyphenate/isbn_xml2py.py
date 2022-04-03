@@ -27,7 +27,7 @@ def parse_prefix_length_map(dom):
     return (prefix, length_map)
 
 if len(sys.argv) != 2:
-    print("Usage:\n./isbn_xml2py.py RangeMessage.xml > isbn_lengthmaps.py", file=sys.stderr)
+    print("Usage:\n./isbn_xml2py.py export_rangemessage.xml > isbn_lengthmaps.py", file=sys.stderr)
     sys.exit(2)
 
 def main():
@@ -49,8 +49,8 @@ def main():
     message_serial = get_text(ISBN_range_message.getElementsByTagName("MessageSerialNumber")[0])
     message_date = get_text(ISBN_range_message.getElementsByTagName("MessageDate")[0])
 
-    print('# Generated from RangeMessage.xml with isbn_xml2py.py')
-    print('# Available from http://www.isbn-international.org/agency?rmxml=1')
+    print('# Generated from export_rangemessage.xml with isbn_xml2py.py')
+    print('# Available from https://www.isbn-international.org/export_rangemessage.xml')
     print('# MessageDate: ' + message_date)
     print('# MessageSerialNumber: ' + message_serial)
     print('groups_length = ' + pprint.pformat(groups_length).replace("u'", "'"))
